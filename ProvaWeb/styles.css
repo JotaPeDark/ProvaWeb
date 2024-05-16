@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #008ebb;
+    flex-direction: column;
+    color: #fff;
+    gap: 20px;
+}
+
+#busca {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#pesquisa {
+    display: flex;
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#btn-pesquisa {
+    position: absolute;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#iconeFiltro {
+    cursor: pointer;
+}
+
+dialog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#modal {
+    dialog[open] {
+        display: block;
+    }
+    dialog {
+        display: none;
+    }
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #4b4b4c;
+    flex-direction: column;
+    color: #fff;
+    gap: 20px;
+}

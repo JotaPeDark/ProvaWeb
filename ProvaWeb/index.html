@@ -1,28 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Notícias IBGE</title>
 </head>
-
 <body>
     <header>
-        <form action="">
-            <input type="submit" value="buscar">
+        <h1>Notícias IBGE</h1>
+        <form action="" id="busca">
+            <input type="search" id="pesquisa" placeholder="Pesquisar">
+            <button type="submit" id="btn-pesquisa">🔍</button>
         </form>
-        <svg id="filtro" width="200" height="200">
-            <rect id="iconeFiltro"  width="50" height="50" />
+        <svg id="iconeFiltro" width="20" height="20" fill="#f0f0f0" viewBox="0 0 80 90" focusable="false"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="m 0,0 30,45 0,30 10,15 0,-45 30,-45 Z"></path>
         </svg>
         <dialog id="modal">
             <button id="fecharModal"> X </button>
+            <form action="">
+                <label>Tipo</label>
+                <input list="tipoNoticia" name="tipoNoticia">
+                <datalist id="tipoNoticia">
+                    <option value="Noticia"></option>
+                    <option value="Release"></option>
+                </datalist>
+                <label>Quantidade</label>
+                <input list="qtdNoticia" name="qtdNoticia">
+                <datalist id="qtdNoticia">
+                    <option value="5"></option>
+                    <option value="10"></option>
+                    <option value="20"></option>
+                </datalist>
+                <label>De</label>
+                <input type="date" name="deData">
+                <label>Até</label>
+                <input type="date" name="ateData">
+                <input id="aplicarFechar" type="submit" value="Aplicar">
+            </form>
         </dialog>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+    </main>
+    <footer>
+        <p>© 2024 Prova PW</p>
+    </footer>
+    <script src="src/script.js"></script>
 </body>
-<script src="script.js"></script>
-
 </html>
