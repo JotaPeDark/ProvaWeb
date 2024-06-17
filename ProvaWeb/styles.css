@@ -1,78 +1,295 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-* {
-    font-family: 'Montserrat', sans-serif;
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    height: 100vh;
-}
-
+/* Estilo do cabeçalho */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    background-color: #008ebb;
-    flex-direction: column;
+    background-color: #004080;
     color: #fff;
-    gap: 20px;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#busca {
+header .container {
     display: flex;
-    position: relative;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-#pesquisa {
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilo do formulário de busca */
+#search-form {
     display: flex;
-    width: 250px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+    align-items: center;
+    position: relative;
 }
 
-#btn-pesquisa {
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#search-form button {
+    padding: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
     position: absolute;
-    right: 0;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Estilo do ícone de filtro */
+#filter-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #0055b3;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+#filter-icon svg {
+    margin-right: 5px;
+}
+
+/* Contador de filtros ativos */
+#active-filters-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    margin-left: 5px;
+    display: none;
+}
+
+/* Estilo do diálogo */
+dialog {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background-color: #fff;
+    max-width: 90%;
+    width: 300px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo do conteúdo principal */
+main {
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 100px auto 20px; /* Aumentado o espaçamento do topo */
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo do item de notícia */
+li {
+    background: white;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+li img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px 8px 0 0; /* Arredondamento das imagens */
+}
+
+/* Estilo do conteúdo da notícia */
+.news-content {
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.summary {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do botão "Leia mais" */
+.read-more-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #004080;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #003366;
+    color: #fff;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #004080;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo da paginação */
+#pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+#pagination button {
+    padding: 10px;
+    cursor: pointer;
     border: none;
     background-color: transparent;
-    padding: 5px 10px;
-    cursor: pointer;
 }
 
-#iconeFiltro {
-    cursor: pointer;
+#pagination .active {
+    background-color: #004080;
+    color: white;
+    border-radius: 50%;
 }
 
-dialog {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-#modal {
-    dialog[open] {
-        display: block;
+/* Media query para telas menores */
+@media (max-width: 760px) {
+    header .container {
+        flex-direction: column;
     }
-    dialog {
-        display: none;
+
+    #search-input {
+        width: 100%;
+    }
+
+    #filter-icon {
+        margin-top: 10px;
     }
 }
 
+/* Estilo para grupos de formulários */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-footer {
+.form-group select,
+.form-group input[type="date"] {
+    width: calc(100% - 16px);
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para botões */
+.buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    background-color: #4b4b4c;
-    flex-direction: column;
-    color: #fff;
-    gap: 20px;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #004080;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #003366; /* Cor alterada ao passar o mouse */
+}
+
+/* Estilo para hashtags */
+.hashtags {
+    margin-top: 10px;
+}
+
+.hashtags span {
+    margin-right: 5px;
+    padding: 3px 8px;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+/* Media query para ajustar o layout das notícias */
+@media (max-width: 1024px) {
+    li img {
+        height: 200px; /* Ajuste de altura da imagem para telas menores */
+    }
+}
+
+@media (max-width: 760px) {
+    li {
+        flex-direction: column; /* Ajuste para layout de coluna em telas menores */
+    }
+
+    li img {
+        border-radius: 8px 8px 0 0; /* Arredondamento das imagens */
+    }
 }
